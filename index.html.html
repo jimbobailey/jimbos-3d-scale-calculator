@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Iron_Man_Mark_III_Helmet.svg/1024px-Iron_Man_Mark_III_Helmet.svg.png" type="image/png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jimbo's 3D Scale Calculator</title>
@@ -167,5 +168,37 @@ Click EXPORT to save the current values and notes.
       link.click();
     }
   </script>
+<div id="splash" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:black;color:#00ffe0;font-family:'Orbitron',sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;">
+  <h1 style="margin-top:20px;">JARVIS SYSTEM BOOTING...</h1>
+</div>
+<script>
+  window.addEventListener('load', () => {
+    const splash = document.getElementById('splash');
+    splash.style.opacity = '0';
+    splash.style.transition = 'opacity 1.5s ease';
+    setTimeout(() => splash.remove(), 2000);
+  });
+</script>
+<style>
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+</style>
+<audio id="bootSound" autoplay>
+  <source src="https://www.myinstants.com/media/sounds/jarvis-startup.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  window.addEventListener('load', () => {
+    const splash = document.getElementById('splash');
+    const sound = document.getElementById('bootSound');
+    sound.play().catch(() => {});
+    splash.style.opacity = '0';
+    splash.style.transition = 'opacity 1.5s ease';
+    setTimeout(() => splash.remove(), 2000);
+  });
+</script>
 </body>
 </html>
